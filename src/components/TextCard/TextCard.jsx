@@ -14,8 +14,7 @@ export function TextCard({ title, subtitle, content, onClick, onClickTrash }) {
   return (
     <>
       <div
-        className={`card ${styles.container}`}
-        style={{ borderColor: isCardHovered ? "#0d6efd" : "transparent" }}
+        className={`card ${styles.container}`} style={{ borderColor: isCardHovered ? "#0d6efd" : "transparent" }}
         onMouseEnter={() => setIsCardHovered(true)}
         onMouseLeave={() => setIsCardHovered(false)}
         onClick={onClick}

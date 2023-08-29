@@ -1,7 +1,7 @@
 import { Logo } from "components/Logo";
 import logoSrc from "assets/images/logo.png";
 import styles from "./style.module.css";
-import { ButtonPrimary } from "components/Logo/ButtonPrimary/ButtonPrimary";
+import { ButtonPrimary } from "components/ButtonPrimary/ButtonPrimary";
 import { useNavigate } from "react-router-dom";
 
 export function Header(props) {
