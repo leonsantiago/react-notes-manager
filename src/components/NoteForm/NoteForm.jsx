@@ -1,33 +1,60 @@
 import { ButtonPrimary } from "components/ButtonPrimary/ButtonPrimary";
+import { useState } from "react";
 import { PencilFill, TrashFill } from "react-bootstrap-icons";
+import { ValidatorService } from "services/validator";
 import styles from "./style.module.css";
 
-export function NoteForm({ title }) {
+const VALIDATOR = {
+  title: (value) => {
+    return ValidatorService.min(value, 3) || ValidatorService.max(value, 20)
+  },
+  content: (value) => {
+    return ValidatorService.min(value, 3)
+  }
+}
+
+export function NoteForm({ title, onClickEdit, onClickDelete, onSubmit }) {
+  const [formErrors, setFormErrors] = useState({ title: undefined, content: undefined });
+  const [formValues, setFormValues] = useState({ title: "", content: "" })
+
+  const updateFormValues = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setFormValues({ ...formValues, [name]: value })
+    validate(name, value);
+  }
+  const validate = (fieldName, fieldValue) => {
+    setFormErrors({
+      ...formErrors,
+      [fieldName]: VALIDATOR[fieldName](fieldValue)
+    })
+  }
   const actionIcons = (
     <>
       <div className="col-1">
-        <PencilFill className={styles.icon} />
+        {onClickEdit && <PencilFill className={styles.icon} />}
       </div>
       <div className="col-1">
-        <TrashFill />
+        {onClickDelete && <TrashFill />}
       </div>
     </>
   );
   const titleInput = (
     <>
       <label className="form-label">Title</label>
-      <input className="form-control" type="text" name="title" />
+      <input onChange={updateFormValues} className="form-control" type="text" name="title" />
     </>
   );
   const contentInput = (
     <>
       <label className="form-label">Content</label>
-      <textarea className="form-control" type="text" name="content" row="5" />
+      <textarea onChange={updateFormValues} className="form-control" type="text" name="content" row="5" />
     </>
   );
   const submitBtn = (
     <div className={styles.submit_btn}>
-      <ButtonPrimary>Submit</ButtonPrimary>
+      <ButtonPrimary onClick={() => onSubmit(formValues)}>Submit</ButtonPrimary>
     </div>
   );
 
@@ -42,7 +69,7 @@ export function NoteForm({ title }) {
 
       <div className={`mb-3 ${styles.title_input_container}`}>{titleInput}</div>
       <div className="mb-3">{contentInput}</div>
-      {submitBtn}
+      {onSubmit && submitBtn}
     </div>
   );
 }
