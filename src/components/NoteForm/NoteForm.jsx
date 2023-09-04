@@ -15,8 +15,14 @@ const VALIDATOR = {
 }
 
 export function NoteForm({ isEditable = true, note, title, onClickEdit, onClickDelete, onSubmit }) {
-  const [formErrors, setFormErrors] = useState({ title: true, content: true });
-  const [formValues, setFormValues] = useState({ title: "", content: "" })
+  const [formErrors, setFormErrors] = useState({
+    title: note?.title ? undefined : true,
+    content: note?.content ? undefined : true
+  });
+  const [formValues, setFormValues] = useState({
+    title: note?.title,
+    content: note?.content
+  });
 
   const updateFormValues = (e) => {
     const name = e.target.name;
@@ -65,6 +71,7 @@ export function NoteForm({ isEditable = true, note, title, onClickEdit, onClickD
         className="form-control"
         type="text"
         name="title"
+        value={formValues.title}
       />
       <FieldError msg={formErrors.title} />
     </div>
@@ -77,7 +84,9 @@ export function NoteForm({ isEditable = true, note, title, onClickEdit, onClickD
         className="form-control"
         type="text"
         name="content"
-        row="5" />
+        row="5"
+        value={formValues.content}
+      />
       <FieldError msg={formErrors.content} />
     </div>
   );
