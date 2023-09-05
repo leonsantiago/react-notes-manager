@@ -23,8 +23,8 @@ root.render(
           <Route path='/signup' element={<Signup />} />
           <Route path='/' element={<App />}>
             <Route path='/' element={<NoteBrowse />} />
-            <Route 
-              path='/note/:noteId' 
+            <Route
+              path='/note/:noteId'
               element={<Note />} />
             <Route path='/note/new' element={<NoteCreate />} />
             <Route path='*' element={<PageNoteFound />} />
