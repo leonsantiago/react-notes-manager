@@ -1,46 +1,10 @@
 {
   "notes": [
     {
-      "id": 1,
-      "title": "A title edited",
-      "content": "Some content edited",
-      "created_at": "01/01/2023"
-    },
-    {
-      "title": "A new note",
-      "content": "Some new content",
-      "created_at": "02/01/2022",
-      "id": 2
-    },
-    {
-      "title": "This is a new title",
-      "content": "This is a new content",
-      "created_at": "8/30/2023",
-      "id": 3
-    },
-    {
-      "title": "This is a new title",
-      "content": "This is a new content",
-      "created_at": "8/30/2023",
-      "id": 4
-    },
-    {
-      "title": "This is a new title",
-      "content": "This is a new content",
-      "created_at": "8/30/2023",
-      "id": 5
-    },
-    {
-      "title": "This is a new title",
-      "content": "This is a new content",
-      "created_at": "8/30/2023",
-      "id": 6
-    },
-    {
-      "title": "AAAAA",
-      "content": "BBBBB",
-      "created_at": "8/30/2023",
-      "id": 7
+      "title": "Hii",
+      "content": "Hii",
+      "created_at": "9/4/2023",
+      "id": 1
     }
   ]
 }

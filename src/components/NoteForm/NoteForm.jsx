@@ -20,8 +20,8 @@ export function NoteForm({ isEditable = true, note, title, onClickEdit, onClickD
     content: note?.content ? undefined : true
   });
   const [formValues, setFormValues] = useState({
-    title: note?.title,
-    content: note?.content
+    title: note?.title || "",
+    content: note?.content || ""
   });
 
   const updateFormValues = (e) => {
