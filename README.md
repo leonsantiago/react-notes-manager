@@ -2,7 +2,7 @@
 React-js-redux course for beginners
 
 ## Notes
--Discover React
+- Discover React
 -Redux Toolkit (RTK)
 -Hooks
 -Firebase
