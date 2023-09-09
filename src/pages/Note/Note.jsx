@@ -1,12 +1,11 @@
 import { NoteAPI } from "api/note-api";
 import { NoteForm } from "components/NoteForm/NoteForm";
-import { withAuthRequired } from "hoc/withAuthRequired";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteNote, updateNote } from "store/notes/notes-slice";
 
-export function Note(props) {
+export function Note() {
   const { noteId } = useParams();
   const note = useSelector(store =>
     store.notesSlice.noteList.find(note => note.id === noteId)

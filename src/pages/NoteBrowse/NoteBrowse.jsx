@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { SearchBar } from "components/SearchBar/SearchBar";
 import { useState } from "react";
-import { withAuthRequired } from "hoc/withAuthRequired";
 
-export function NoteBrowse(props) {
+export function NoteBrowse() {
   const noteList = useSelector(store => store.notesSlice.noteList);
   const [searchTerm, setSearchTerm] = useState("")
 
