@@ -5,7 +5,7 @@ export async function toast(type, msg) {
     position: "top-end",
     icon: type,
     showConfirmButton: false,
-    timer: 4000,
+    timer: 3000,
     toast: true,
     title: msg,
   });
