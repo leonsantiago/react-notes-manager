@@ -1,10 +1,15 @@
-import axios from "axios";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
 import { FirebaseApp } from "utils/firebase";
 
 
 export class NoteAPI {
-  static async create(note) {
+  static async create(formValues) {
+    const response = await addDoc(
+      collection(FirebaseApp.db, "notes"), formValues)
+    return {
+      id: response.id,
+      ...formValues,
+    };
   }
 
   static async fetchAll() {
@@ -23,8 +28,15 @@ export class NoteAPI {
   }
 
   static async deleteById(noteId) {
+    deleteDoc(FirebaseApp.db, "notes", noteId);
   }
 
   static async updateById(id, values) {
+    const q = doc(FirebaseApp.db, "notes", id);
+    const response = await updateDoc(q, values);
+    return {
+      id,
+      ...values,
+    }
   }
 }
