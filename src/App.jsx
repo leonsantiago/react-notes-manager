@@ -1,4 +1,4 @@
-import { NoteAPI } from "api/note-api";
+import { NoteAPI } from "api/note";
 import { ButtonPrimary } from "components/ButtonPrimary/ButtonPrimary";
 import { Header } from "Header/Header";
 import { withAuthRequired } from "hoc/withAuthRequired";
